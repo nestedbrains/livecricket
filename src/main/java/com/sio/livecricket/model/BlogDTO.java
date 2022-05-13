@@ -15,6 +15,9 @@ public class BlogDTO {
     @NotNull
     private String description;
 
+    private String guid;
+
+
     public Long getId() {
         return id;
     }
@@ -39,4 +42,11 @@ public class BlogDTO {
         this.description = description;
     }
 
+    public String getGuid() {
+        return guid;
+    }
+
+    public void setGuid(String guid) {
+        this.guid = guid;
+    }
 }
