@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LiveScoreController {
     @GetMapping()
     public String score() {
-        return "/score/index";
+        /*classpath:/templates/score/index*/
+        return "score/index";
     }
 }
