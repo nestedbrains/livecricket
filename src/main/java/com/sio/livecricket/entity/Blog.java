@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
+import javax.persistence.Table;
 
 @Getter
 @Setter
@@ -12,6 +13,7 @@ import javax.persistence.Lob;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "blogs")
 public class Blog extends BaseEntity {
 
     @Column(nullable = false)
