@@ -13,7 +13,6 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "blogs")
 public class Blog extends BaseEntity {
 
     @Column(nullable = false)

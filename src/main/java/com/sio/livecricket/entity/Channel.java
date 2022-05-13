@@ -12,7 +12,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "channels")
 public class Channel extends BaseEntity {
     private String title;
     private String ttl;
