@@ -11,8 +11,9 @@ import javax.persistence.Table;
 @Setter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
+
 @Entity
+@Table(name = "blogs")
 public class Blog extends BaseEntity {
 
     @Column(nullable = false)
@@ -24,4 +25,9 @@ public class Blog extends BaseEntity {
 
     private String guid;
 
+    public Blog(String title, String description, String guid) {
+        this.title = title;
+        this.description = description;
+        this.guid = guid;
+    }
 }

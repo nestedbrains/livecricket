@@ -8,10 +8,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.security.core.userdetails.User;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.time.Instant;
 
 @Getter
@@ -24,6 +21,7 @@ public class BaseEntity {
     private Long id;
 
     @CreatedBy
+    @Column(name = "logged_user")
     private User user;
 
     @CreatedDate

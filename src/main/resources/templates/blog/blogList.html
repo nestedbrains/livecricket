@@ -26,19 +26,19 @@
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                <span class="fs-4 font-weight-bold "> {{channel.title}}</span>
+                <span class="fs-4 font-weight-bold "> Title </span>
             </a>
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="#" class="btn btn-outline-primary me-2" aria-current="page">Blogs</a></li>
                 <li class="ml-3 nav-item"><a href="/logout" class=" btn btn-outline-primary me-2" aria-current="page">Logout</a></li>
             </ul>
         </header>
-        <p> Date : {{channel.pubDate}}</p>
         <div class="row g-2">
             <input type="text" v-model="searchQuery" placeholder="Search ...">
             <div v-if="!status"> Data is seeding, wait sometimes</div>
-            <div v-if="status" class="col-md-12" v-for="item in filteredResources">
+            <div v-if="status" class="col-xl-4 col-md-6 col-sm-12" v-for="item in filteredResources">
                 <div class="card">
+                    <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_960/lsci/db/PICTURES/CMS/263700/263709.4.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5> {{item.title}}</h5>
                         <p> {{item.description}}</p>
@@ -52,7 +52,7 @@
     </div>
     <footer class="mt-auto footer mt-auto">
         <div class="container text-center font-weight-bold">
-            <p class="font-weight-bold"> {{channel.copyright}}</p>
+            <p class="font-weight-bold">adasasd</p>
         </div>
     </footer>
 </div>
@@ -72,7 +72,7 @@
         data() {
             return {
                 searchQuery: '',
-                channel: {},
+                blogList: [],
                 status: true
             }
         },
@@ -80,11 +80,11 @@
         computed: {
             filteredResources() {
                 if (this.searchQuery) {
-                    return this.channel.item.filter((item) => {
+                    return this.blogList.filter((item) => {
                         return item.title.toLowerCase().includes(this.searchQuery.toLowerCase());
                     })
                 } else {
-                    return this.channel.item;
+                    return this.blogList;
                 }
             }
         },
@@ -94,12 +94,13 @@
         },
         methods: {
             async getData() {
-                const result = await HTTPRequest.get(`/channel/`);
+                const result = await HTTPRequest.get(`/api/blogs/`);
                 if (result.data === '') {
                     this.status = false
                 }
                 else {
-                    this.channel = result.data;
+
+                    this.blogList = result.data;
                     this.status = true;
                 }
             }
