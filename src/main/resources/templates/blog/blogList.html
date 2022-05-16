@@ -34,6 +34,7 @@
             </ul>
         </header>
         <div class="row g-2">
+            <a href="/blog/create" class=" col-md-2 btn btn-outline-primary me-2" aria-current="page">Create Blog</a>
             <input type="text" v-model="searchQuery" placeholder="Search ...">
             <div v-if="!status"> Data is seeding, wait sometimes</div>
             <div v-if="status" class="col-xl-4 col-md-6 col-sm-12" v-for="item in filteredResources">
