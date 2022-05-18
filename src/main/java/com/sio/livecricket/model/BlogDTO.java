@@ -2,7 +2,7 @@ package com.sio.livecricket.model;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
+import java.beans.Transient;
 
 
 public class BlogDTO {
@@ -17,6 +17,8 @@ public class BlogDTO {
     private String description;
 
     private String guid;
+
+    private String imageUrl;
 
 
     public Long getId() {
@@ -49,5 +51,20 @@ public class BlogDTO {
 
     public void setGuid(String guid) {
         this.guid = guid;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    @Transient
+    public String getPhotosImagePath() {
+        if (imageUrl == null || id == null) return null;
+
+        return "/user-photos/" + id + "/" + imageUrl;
     }
 }

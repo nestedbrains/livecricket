@@ -28,6 +28,8 @@ public class Blog extends BaseEntity {
 
     private String guid;
 
+    private String imageUrl;
+
     public Blog(String title, String description, String guid) {
         this.title = title;
         this.description = description;

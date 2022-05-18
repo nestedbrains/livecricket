@@ -22,6 +22,8 @@
 
 <!--th:each="item : ${dataset.getItem()}-->
 
+
+
 <div class="d-flex flex-column min-vh-100" id="contents">
 
     <div class="container">
@@ -35,9 +37,9 @@
             </ul>
         </header>
 
-        <div class="row" th:if="${Utils.getGreenMessage(#request) != ''}">
+        <div class="row" th:if="${success != null}">
             <div  class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Congratulation!</strong> <p th:text="${Utils.getGreenMessage(#request)}"></p>
+                <strong>Congratulation!</strong> <p th:text="${success}"></p>
             </div>
         </div>
         <div class="row g-2">
@@ -46,7 +48,8 @@
             <div v-if="!status"> Data is seeding, wait sometimes</div>
             <div v-if="status" class="col-xl-4 col-md-6 col-sm-12" v-for="item in filteredResources">
                 <div class="card">
-                    <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_960/lsci/db/PICTURES/CMS/263700/263709.4.jpg" class="card-img-top" alt="...">
+
+                    <img :src="item.imageUrl" class="card-img-top" alt="Services"  src=""/> </div>
                     <div class="card-body">
                         <h5> {{item.title}}</h5>
                         <p> {{item.description}}</p>

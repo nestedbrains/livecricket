@@ -6,8 +6,6 @@ import com.sio.livecricket.entity.Blog;
 import com.sio.livecricket.model.BlogDTO;
 import com.sio.livecricket.repository.BlogRepository;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -58,16 +56,16 @@ public class BlogService {
         blogDTO.setId(blog.getId());
         blogDTO.setTitle(blog.getTitle());
         blogDTO.setDescription(blog.getDescription());
+        blogDTO.setImageUrl(blog.getImageUrl());
         return blogDTO;
     }
 
     private Blog mapToEntity(final BlogDTO blogDTO, final Blog blog) {
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
 
         blog.setTitle(blogDTO.getTitle());
         blog.setDescription(blogDTO.getDescription());
+        blog.setImageUrl(blogDTO.getImageUrl());
         return blog;
     }
 

@@ -23,7 +23,7 @@ public class LivecricketApplication {
     }
 
 
-    @Bean
+   /* @Bean
     CommandLineRunner commandLineRunner(BlogRepository blogRepository) {
         return args -> {
 
@@ -41,6 +41,6 @@ public class LivecricketApplication {
             log.info("---------------------save---------------------");
             blogRepository.saveAll(blogDTOS);
         };
-    }
+    }*/
 
 }

@@ -6,7 +6,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.security.core.userdetails.User;
+
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -20,9 +20,9 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @CreatedBy
+/*    @CreatedBy
     @Column(name = "logged_user")
-    private User user;
+    private User user;*/
 
     @CreatedDate
     private Instant createdDate;
