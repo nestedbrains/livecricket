@@ -11,20 +11,16 @@ public class Utils {
 
     public static void setGreenMessage(HttpServletRequest request, String message) {
         HttpSession session = request.getSession();
-        List greenMessages = (List) session.getAttribute("greenMessage");
-        if (greenMessages == null) {
-            greenMessages = new ArrayList();
-        }
-        greenMessages.add(message);
-        session.setAttribute("greenMessage", greenMessages);
+
+        session.setAttribute("greenMessage", message);
     }
 
-    public static Object getGreenMessage(HttpServletRequest request) {
+    public static String getGreenMessage(HttpServletRequest request) {
         if (request.getSession().getAttribute("greenMessage") != null) {
-            Object message = request.getSession().getAttribute("greenMessage");
+            String message = (String) request.getSession().getAttribute("greenMessage");
             request.getSession().removeAttribute("greenMessage");
             return message;
         }
-        return "";
+        return "success";
     }
 }

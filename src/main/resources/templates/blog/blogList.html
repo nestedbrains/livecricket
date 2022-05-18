@@ -35,9 +35,9 @@
             </ul>
         </header>
 
-        <div class="row" th:if="${Utils.getGreenMessage(#request) != null}">
-            <div th:text="${Utils.getGreenMessage(#request)}" class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Congratulation!</strong> Blog saved successfully.
+        <div class="row" th:if="${Utils.getGreenMessage(#request) != ''}">
+            <div  class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Congratulation!</strong> <p th:text="${Utils.getGreenMessage(#request)}"></p>
             </div>
         </div>
         <div class="row g-2">
