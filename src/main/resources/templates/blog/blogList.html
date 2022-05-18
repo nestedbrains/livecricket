@@ -18,7 +18,8 @@
         }
     </style>
 </head>
-<body>
+<body th:with="Utils=${T(com.sio.livecricket.utils.Utils)}">
+
 <!--th:each="item : ${dataset.getItem()}-->
 
 <div class="d-flex flex-column min-vh-100" id="contents">
@@ -33,6 +34,12 @@
                 <li class="ml-3 nav-item"><a href="/logout" class=" btn btn-outline-primary me-2" aria-current="page">Logout</a></li>
             </ul>
         </header>
+
+        <div class="row" th:if="${Utils.getGreenMessage(#request) != null}">
+            <div th:text="${Utils.getGreenMessage(#request)}" class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Congratulation!</strong> Blog saved successfully.
+            </div>
+        </div>
         <div class="row g-2">
             <a href="/blog/create" class=" col-md-2 btn btn-outline-primary me-2" aria-current="page">Create Blog</a>
             <input type="text" v-model="searchQuery" placeholder="Search ...">
